@@ -79,7 +79,7 @@ class CubBayesNetG(StoppingCriterion):
     parameters = ['abs_tol', 'rel_tol', 'n_init', 'n_max']
 
     def __init__(self, integrand, abs_tol=1e-2, rel_tol=0,
-                 n_init=2 ** 8, n_max=2 ** 22, alpha=0.01):
+                 n_init=2 ** 8, n_max=2 ** 22, alpha=0.01, debug_enable=True):
         # Set Attributes
         self.abs_tol = abs_tol
         self.rel_tol = rel_tol
@@ -116,7 +116,7 @@ class CubBayesNetG(StoppingCriterion):
 
         self.avoid_cancel_error = True  # avoid cancellation error in stopping criterion
         self.uncert = 0  # quantile value for the error bound
-        self.debug_enable = True  # enable debug prints
+        self.debug_enable = debug_enable  # enable debug prints
         self.data = None
         self.fwht = FWHT()
 

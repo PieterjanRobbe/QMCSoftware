@@ -32,7 +32,7 @@ def pi_problem_bayes_net(abs_tol=.01):
     distribution = Sobol(dimension=1, seed=7, graycode=False)
     measure = Lebesgue(distribution, lower_bound=-2, upper_bound=2)
     integrand = CustomFun(measure, lambda x: sqrt(4 - x**2) * (1. / 2 + x**3 * cos(x / 2)))
-    solution,data = CubBayesNetG(integrand, abs_tol=abs_tol, n_max=2**30).integrate()
+    solution,data = CubBayesNetG(integrand, abs_tol=abs_tol, n_max=2**30, debug_enable=False).integrate()
     password = str(solution).replace('.', '')[:10]
     t_delta = time() - t0
     return password,t_delta,data
